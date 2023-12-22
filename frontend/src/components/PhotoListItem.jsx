@@ -1,8 +1,11 @@
 // PhotoListItem.jsx
-import React from 'react';
+
+import React, { useState } from 'react';
 import 'styles/PhotoListItem.scss'
 const PhotoListItem = ({ id, location, imageSource, username, profile,liked }) => {
-  
+ 
+ 
+
     return (
       
         <div className="photo-list__item" >
@@ -14,9 +17,7 @@ const PhotoListItem = ({ id, location, imageSource, username, profile,liked }) =
               <p className="location">{location.city}, {location.country}</p>
             </div>
           </div>
-          <div className="photo-list__actions">
-        {liked && <span>❤️ Liked</span>}
-      </div>
+          
         </div>
         
       );

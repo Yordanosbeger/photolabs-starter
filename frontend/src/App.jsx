@@ -1,6 +1,8 @@
 // App.jsx
+
 import React from 'react';
 import PhotoListItem from 'components/PhotoListItem';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 const App = () => {
   const sampleDataList = [
@@ -32,7 +34,9 @@ const App = () => {
           profile={data.profile}
           liked={data.liked}  // Pass the liked prop if needed
         />
+        
       ))}
+      <PhotoFavButton/>
     </div>
   );
 };
