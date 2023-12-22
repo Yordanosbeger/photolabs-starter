@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import 'styles/PhotoListItem.scss'
-const PhotoListItem = ({ id, location, imageSource, username, profile,liked }) => {
+const PhotoListItem = ({ id, location, imageSource, username, profile }) => {
  
  
 
