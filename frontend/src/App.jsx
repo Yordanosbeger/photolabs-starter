@@ -6,6 +6,9 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 import TopicList from 'components/TopicList';
 import TopNavigation from 'components/TopNavigationBar';
+import HomeRoute from 'routes/HomeRoute';
+import topics from './mocks/topics';
+import photos from './mocks/photos';
 
 const App = () => {
  
@@ -27,13 +30,13 @@ const App = () => {
         />
         
      ))*/}
-     <TopNavigation/>
+     {/* <TopNavigation/>
      
-      <PhotoFavButton/>
-      <PhotoList/>
+     <HomeRoute/>  */}
+      {/* <TopNavigation/> */}
+      <HomeRoute/>
     
-      
-    </div>
+      </div> 
   );
 };
 

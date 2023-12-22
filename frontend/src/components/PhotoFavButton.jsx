@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import FavIcon from './FavIcon';
+import FavBadge from './FavBadge';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton() {
