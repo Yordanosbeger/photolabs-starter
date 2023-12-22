@@ -1,30 +1,25 @@
-import React from "react";
-
-import "../styles/PhotoListItem.scss";
-
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
-
-const PhotoListItem = ({ id, location, imageSource, username, profile }) => {
-  return (
-    <div className="photo-list-item">
-      {/* Your component code goes here */}
-      <img src={imageSource} alt={`Photo by ${username}`} />
-      <div>
-        <p>{username}</p>
-        <p>{location.city}, {location.country}</p>
+// PhotoListItem.jsx
+import React from 'react';
+import 'styles/PhotoListItem.scss'
+const PhotoListItem = ({ id, location, imageSource, username, profile,liked }) => {
+  
+    return (
+      
+        <div className="photo-list__item" >
+          <img className="photo-list__image" src={imageSource} alt={`Photo by ${username}`} />
+          <div className="user-info">
+            <img className="photo-list__user-profile" src={profile} alt={`Profile of ${username}`} />
+            <div className="user-details">
+              <p className="username">{username}</p>
+              <p className="location">{location.city}, {location.country}</p>
+            </div>
+          </div>
+          <div className="photo-list__actions">
+        {liked && <span>❤️ Liked</span>}
       </div>
-    </div>
-  );
-}
+        </div>
+        
+      );
+  };
 
 export default PhotoListItem;

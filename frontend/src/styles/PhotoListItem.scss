@@ -6,12 +6,17 @@
   border-style: solid;
   border-radius: 8px;
   max-width: fit-content;
+  border-radius: 10px; /* Adjust the border radius as needed */
+  overflow: hidden; /* Ensure the image is clipped within the rounded border */
+  border: 5px solid #ddd; /* Optional: Add a border for better visibility */
+  border-style: double
 }
+
 
 .photo-list__image {
   user-select: none;
   width: 300px;
-  height: 200px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -21,6 +26,10 @@
   width: 300px;
   height: 200px;
   object-fit: cover;
+  border-radius: 10px; /* Adjust the border radius as needed */
+  overflow: hidden; /* Ensure the image is clipped within the rounded border */
+  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+
 }
 
 .photo-list__user-profile {
@@ -46,3 +55,13 @@
 .photo-list__user-location {
   color: #838383;
 }
+
+
+.photo-list {
+  /* Your styles here */
+  margin: 10px;
+  padding: 5px;
+  /* ... other styles ... */
+}
+
+  
