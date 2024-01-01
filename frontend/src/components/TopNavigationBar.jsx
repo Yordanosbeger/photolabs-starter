@@ -2,7 +2,9 @@ import React from 'react';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
-import FavIcon from './FavIcon';
+import PhotoFavButton from './PhotoFavButton';
+//import FavIcon from './FavIcon';
+//import FavIcon from './FavIcon';
 
 
 const TopNavigation = () => {
@@ -11,9 +13,11 @@ const TopNavigation = () => {
       <span className="top-nav-bar__logo">PhotoLabs</span>
       
       <TopicList  />
-       <FavBadge/>
+        <FavBadge/> 
+       
       </div>
   )
+
 }
 
 export default TopNavigation;

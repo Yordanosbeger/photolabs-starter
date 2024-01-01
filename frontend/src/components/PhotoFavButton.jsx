@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react';
-
+//import React from 'react';
 import FavBadge from './FavBadge';
 import '../styles/PhotoFavButton.scss';
+import FavIcon from './FavIcon';
+//import TopNavigation from './TopNavigationBar';
 
 function PhotoFavButton() {
   const [isActive, setIsActive] = useState(false);
@@ -11,10 +13,19 @@ function PhotoFavButton() {
   return (
     <div className={`photo-list__fav-icon ${isActive ? 'active' : ''}`}onClick={handleIconClick}>
       <div className="photo-list__fav-icon-svg" >
-      {isActive && <span>❤️ Liked</span>}
-       
+      {isActive && <span> ❤️ Liked </span>} 
+      
+         <FavBadge/>  
       </div>
     </div>
+    /*<div className="photo-list__fav-icon" onClick={props.toggleFav}>
+    <div className="photo-list__fav-icon-svg">*/
+
+      /*<FavIcon
+        selected={props.isLiked}
+      />*/
+    
+  
   );
 }
 
