@@ -5,28 +5,39 @@ import '../styles/PhotoFavButton.scss';
 import FavIcon from './FavIcon';
 //import TopNavigation from './TopNavigationBar';
 
-function PhotoFavButton() {
-  const [isActive, setIsActive] = useState(false);
-  const handleIconClick = () => {
-    setIsActive((prev) => !prev);
-  };
-  return (
-    <div className={`photo-list__fav-icon ${isActive ? 'active' : ''}`}onClick={handleIconClick}>
-      <div className="photo-list__fav-icon-svg" >
-      {isActive && <span> ❤️ Liked </span>} 
+function PhotoFavButton(props) {
+  // const [isActive, setIsActive] = useState(false);
+  // const handleIconClick = () => {
+  //   setIsActive((prev) => !prev);
+  
+  // return (
+  //   <div className={`photo-list__fav-icon ${isActive ? 'active' : ''}`}onClick={handleIconClick}>
+  //     <div className="photo-list__fav-icon-svg" >
+  //     {isActive && <span> ❤️ Liked </span>} 
       
-         <FavBadge/>  
-      </div>
-    </div>
+  //        <FavBadge/>  
+  //     </div>
+  //   </div>
     /*<div className="photo-list__fav-icon" onClick={props.toggleFav}>
     <div className="photo-list__fav-icon-svg">*/
 
       /*<FavIcon
         selected={props.isLiked}
       />*/
+      return (
+        <div className="photo-list__fav-icon" onClick={props.toggleFav}>
+          <div className="photo-list__fav-icon-svg">
+    
+            <FavIcon
+              selected={props.isLiked}
+            />
+          </div>
+        </div>
+      );
+    
     
   
-  );
+  
 }
 
 export default PhotoFavButton;

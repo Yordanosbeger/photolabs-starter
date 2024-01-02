@@ -6,25 +6,33 @@ import PhotoList from 'components/PhotoList';
 import TopNavigation from 'components/TopNavigationBar';
 //import FavBadge from 'components/FavBadge';
 
-const HomeRoute = ({ openModal }) => { 
+const HomeRoute = (props) => { 
   
+  const {openModal,setSelectedPhoto,likedPhotos,toggleFav,photos,  topics } = props
 
 
-    const handleHomeClick = (selectedPhoto) => {
+    // const handleHomeClick = (selectedPhoto) => {
       
   
     
-      openModal(selectedPhoto);
-    };
+    //   openModal(selectedPhoto);
+    // };
   
    
   
     return (
       <div className="home-route">
-       
+       {/* <TopNavigation/>
       <PhotoList  onPhotoClick={handleHomeClick}/>
-        <button onClick={handleHomeClick}>Open Modal</button>
-      </div>
+        <button onClick={handleHomeClick}>Open Modal</button> */}
+     
+      
+      <TopNavigation likedPhotos={likedPhotos} topics={topics} />
+      
+      <PhotoList  setSelectedPhoto={setSelectedPhoto} toggleFav={toggleFav} likedPhotos={likedPhotos} photos={photos}  openModal={openModal} />
+
+    </div>
+      
    
     );
 

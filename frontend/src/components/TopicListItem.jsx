@@ -8,11 +8,11 @@ import "../styles/TopicListItem.scss";
 //   label: "Nature",
 // };
 
-const TopicListItem = ({slug}) => {
+const TopicListItem = ({slug,key}) => {
   return (
     <div className="topic-list__item">
       
-      <span className= 'topic-list__item span'>{slug}</span>
+      <span className= 'topic-list__item span'>{slug} {key}</span>
     </div>
   );
 };

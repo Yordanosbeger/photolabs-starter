@@ -33,7 +33,10 @@ const topics = [
 
 
 
-const TopicList = () => {
+const TopicList = ({ topics}) => {
+  if (!topics) {
+    return null;
+  }
   return (
     <div className="top-nav-bar__topic-list">
       

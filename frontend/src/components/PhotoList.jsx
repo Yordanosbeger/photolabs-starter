@@ -284,30 +284,57 @@ const photos = [
 
 
 
-const PhotoList = ({ onPhotoClick }) => {
+// const PhotoList = ({photos, toggleFav, likedPhotos, openModal, setSelectedPhoto}) => {
   
-  return (
+//   return (
     
-    <ul className="photo-list">
+//     <ul className="photo-list">
        
-      {photos.map(photoData => (
-         <li key={photoData.id} onClick={() => onPhotoClick(photoData)}>
+//       {photos.map(photoData => (
+//          <li key={photoData.id} onClick={() => onPhotoClick(photoData)}>
          
-        <PhotoListItem
-          key={photoData.id}
-          id={photoData.id}
-          location={photoData.location}
-          imageSource={photoData.urls.regular}
-          username={photoData.user.username}
-          profile={photoData.user.profile}
-          //onClick={() => onPhotoClick(photoData)}
-        />
+//         <PhotoListItem
+//           key={photoData.id}
+//           id={photoData.id}
+//           location={photoData.location}
+//           imageSource={photoData.urls.regular}
+//           username={photoData.user.username}
+//           profile={photoData.user.profile}
+//           toggleFav={toggleFav}
+//           isLiked={likedPhotos.includes(photoData.id)} 
+//           openModal={openModal}
+//           similarPhotos={photo.similar_photos}
+//          setSelectedPhoto={setSelectedPhoto}
+//           //onClick={() => onPhotoClick(photoData)}
+//         />
+//         </li>
+//       ))}
+       
+//     </ul>
+    
+//   )
+// };
+const PhotoList = ({ onPhotoClick }) => {
+  // ...
+
+  return (
+    <ul className="photo-list">
+      {photos && photos.map((photoData) => (
+        <li key={photoData.id} onClick={() => onPhotoClick(photoData)}>
+          <PhotoListItem
+            key={photoData.id}
+            id={photoData.id}
+            location={photoData.location}
+            imageSource={photoData.urls.regular}
+            username={photoData.user.username}
+            profile={photoData.user.profile}
+          />
         </li>
       ))}
-       
     </ul>
-    
-  )
+  );
 };
+
+
 
 export default PhotoList;
