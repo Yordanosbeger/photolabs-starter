@@ -6,15 +6,17 @@ import HomeRoute from 'routes/HomeRoute';
 const App = () => {
   
   const [isModalOpen, setIsModalOpen] = useState(false);
-  //console.log('Rendering App component');
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
  
-  const openModal = () => {
+  const openModal = (photoData) => {
+    setSelectedPhoto(photoData);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedPhoto(null);
   };
   
 
@@ -24,7 +26,7 @@ const App = () => {
      
       <TopNavigation />
     <HomeRoute openModal={openModal} />
-    {isModalOpen && <PhotoDetailsModal closeModal={closeModal}/>}
+    {isModalOpen && <PhotoDetailsModal closeModal={closeModal} selectedPhoto={selectedPhoto}/>}
   
   </div>
 );

@@ -285,11 +285,14 @@ const photos = [
 
 
 const PhotoList = ({ onPhotoClick }) => {
+  
   return (
     
     <ul className="photo-list">
-       {onPhotoClick}
+       
       {photos.map(photoData => (
+         <li key={photoData.id} onClick={() => onPhotoClick(photoData)}>
+         
         <PhotoListItem
           key={photoData.id}
           id={photoData.id}
@@ -297,9 +300,9 @@ const PhotoList = ({ onPhotoClick }) => {
           imageSource={photoData.urls.regular}
           username={photoData.user.username}
           profile={photoData.user.profile}
-          
+          //onClick={() => onPhotoClick(photoData)}
         />
-        
+        </li>
       ))}
        
     </ul>

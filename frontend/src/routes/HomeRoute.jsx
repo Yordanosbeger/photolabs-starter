@@ -1,5 +1,5 @@
 import React from 'react';
-
+import photos from 'mocks/photos';
 import '../styles/HomeRoute.scss';
 //import TopicList from 'components/TopicList';
 import PhotoList from 'components/PhotoList';
@@ -10,11 +10,11 @@ const HomeRoute = ({ openModal }) => {
   
 
 
-    const handleHomeClick = () => {
+    const handleHomeClick = (selectedPhoto) => {
       
   
     
-      openModal();
+      openModal(selectedPhoto);
     };
   
    
@@ -22,7 +22,7 @@ const HomeRoute = ({ openModal }) => {
     return (
       <div className="home-route">
        
-      <PhotoList onPhotoClick={handleHomeClick}/>
+      <PhotoList  onPhotoClick={handleHomeClick}/>
         <button onClick={handleHomeClick}>Open Modal</button>
       </div>
    
