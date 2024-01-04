@@ -4,11 +4,11 @@ import "../styles/TopicListItem.scss";
 
 
 
-const TopicListItem = ({slug, title }) => {
+const TopicListItem = ({ title }) => {
   return (
     
       <div className="topic-list__item">
-        <span className="topic-list__item span">{slug} {title}</span>
+        <span className="topic-list__item span"> {title}</span>
       </div>
     );
   
