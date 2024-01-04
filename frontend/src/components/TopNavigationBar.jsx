@@ -2,22 +2,16 @@ import React from 'react';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
-import topics from 'mocks/topics';
 
 
-
-const TopNavigation = ({likedPhotos, topics}) => {
-  const isFavPhotoExist = likedPhotos.length > 0;
-  return (
-    <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">PhotoLabs</span>
-      
-      <TopicList  topics={topics}/>
-      <FavBadge  isFavPhotoExist={isFavPhotoExist}/>
-       
-      </div>
-  )
-
-}
-
-export default TopNavigation;
+ const TopNavigationBar = ({topics}) => {
+   return (
+     <div className="top-nav-bar">
+       <span className="top-nav-bar__logo">PhotoLabs</span>
+       <TopicList topics={topics}/>
+       <FavBadge isFavPhotoExist={true} />
+     </div>
+   )
+ }
+  
+export default TopNavigationBar;

@@ -1,111 +1,111 @@
-import { useReducer, useEffect } from "react";
-export const ACTIONS = {
-  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
-  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
-}
+// import { useReducer, useEffect } from "react";
+// export const ACTIONS = {
+//   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+//   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+//   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+//   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+//   SELECT_PHOTO: 'SELECT_PHOTO',
+//   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+// }
 
-function reducer(state, action) {
-  switch (action.type) {
-    case ACTIONS.FAV_PHOTO_ADDED:
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case ACTIONS.FAV_PHOTO_ADDED:
       
-      return {
-        ...state,
-        likedPhotos: [...state.likedPhotos,
-        action.photoId],
-      };
+//       return {
+//         ...state,
+//         likedPhotos: [...state.likedPhotos,
+//         action.photoId],
+//       };
 
-    case ACTIONS.FAV_PHOTO_REMOVED:
+//     case ACTIONS.FAV_PHOTO_REMOVED:
      
-      return {
-        ...state,
-        likedPhotos: state.likedPhotos.filter((id) => id !== action.photoId),
-      };
+//       return {
+//         ...state,
+//         likedPhotos: state.likedPhotos.filter((id) => id !== action.photoId),
+//       };
 
-    case ACTIONS.SELECT_PHOTO:
+//     case ACTIONS.SELECT_PHOTO:
       
-      return {
-        ...state,
-        showModal: true,
-        clickedPhoto: action.photo,
-      };
+//       return {
+//         ...state,
+//         showModal: true,
+//         clickedPhoto: action.photo,
+//       };
 
  
-    case ACTIONS.SET_PHOTO_DATA:
-      return { ...state, photoData: action.payload };
+//     case ACTIONS.SET_PHOTO_DATA:
+//       return { ...state, photoData: action.payload };
 
-    case ACTIONS.SET_TOPIC_DATA:
-      return { ...state, topicData: action.payload };
+//     case ACTIONS.SET_TOPIC_DATA:
+//       return { ...state, topicData: action.payload };
 
-    case ACTIONS.CLOSE_MODAL:
-      return {
-        ...state,
-        showModal: false,
-        clickedPhoto:null
-      };
+//     case ACTIONS.CLOSE_MODAL:
+//       return {
+//         ...state,
+//         showModal: false,
+//         clickedPhoto:null
+//       };
 
 
-    default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
-  }
-}
+//     default:
+//       throw new Error(
+//         `Tried to reduce with unsupported action type: ${action.type}`
+//       );
+//   }
+// }
 
-const useApplicationData = () => {
+// const useApplicationData = () => {
 
-  const [state, dispatch] = useReducer(reducer, {
-    showModal: false,
-    clickedPhoto: null,
-    likedPhotos: [],
-    photoData: [],
-    topicData: [],
-    photosByTopic: [],
+//   const [state, dispatch] = useReducer(reducer, {
+//     showModal: false,
+//     clickedPhoto: null,
+//     likedPhotos: [],
+//     photoData: [],
+//     topicData: [],
+//     photosByTopic: [],
 
-  });
-
-  
-const onPhotoSelect = (photo) => {
-    
-    dispatch({ type: ACTIONS.SELECT_PHOTO, photo });
-  };
+//   });
 
   
-  const onClosePhotoDetailsModal = () => {
-    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
-  };
-  const closeModal = () => {
+// const onPhotoSelect = (photo) => {
     
-    dispatch({ type: ACTIONS.CLOSE_MODAL });
-    
-  };
+//     dispatch({ type: ACTIONS.SELECT_PHOTO, photo });
+//   };
 
   
-  const updateToFavPhotoIds = (photoId) => {
+//   const onClosePhotoDetailsModal = () => {
+//     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
+//   };
+//   const closeModal = () => {
     
-    dispatch({
-      type: state.likedPhotos.includes(photoId)
-        ? ACTIONS.FAV_PHOTO_REMOVED
-        : ACTIONS.FAV_PHOTO_ADDED,
-      photoId,
-    });
-  };
+//     dispatch({ type: ACTIONS.CLOSE_MODAL });
+    
+//   };
+
+  
+//   const updateToFavPhotoIds = (photoId) => {
+    
+//     dispatch({
+//       type: state.likedPhotos.includes(photoId)
+//         ? ACTIONS.FAV_PHOTO_REMOVED
+//         : ACTIONS.FAV_PHOTO_ADDED,
+//       photoId,
+//     });
+//   };
 
   
 
-  return {
+//   return {
     
-    onPhotoSelect,
-    updateToFavPhotoIds,
-    onClosePhotoDetailsModal,
-    closeModal,
+//     onPhotoSelect,
+//     updateToFavPhotoIds,
+//     onClosePhotoDetailsModal,
+//     closeModal,
     
 
-  };
-};
+//   };
+// };
 
 
-export default useApplicationData;
+// export default useApplicationData;
