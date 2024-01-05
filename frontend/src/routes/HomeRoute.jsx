@@ -1,36 +1,28 @@
-import React from 'react';
-// //import photos from 'mocks/photos';
 import '../styles/HomeRoute.scss';
-// //import TopicList from 'components/TopicList';
-// import PhotoList from 'components/PhotoList';
- import TopNavigation from 'components/TopNavigationBar';
+import React from 'react';
+import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import TopicList from 'components/TopicList';
-// //import FavBadge from 'components/FavBadge';
 
- const HomeRoute = ({photos,topics}) => { 
+
+ const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,openModal}) => { 
   
  
-
-
      
   
-   
-  
-    return (
+   return (
       <div className="home-route">
-       <TopNavigation topics={topics}/>
-       <PhotoList photos={photos} />
+        <TopNavigationBar topics={topics} hasFavoritePhotos={favoritePhotos.length>0}/>
+       <PhotoList 
+       photos={photos} 
+       onToggleFavorite={onToggleFavorite} 
+       favoritePhotos={favoritePhotos}
        
-      
+       openModal={openModal}/> 
+       
       </div>
       
-   
-    
-    )
+   )
 
- 
-  
-  };
+ };
 
  export default HomeRoute;

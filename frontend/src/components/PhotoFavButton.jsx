@@ -6,9 +6,13 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton(props) {
   const [isActive, setIsActive] = useState(props.isLiked || false);
 
+  
   const handleIconClick = () => {
     setIsActive((prev) => !prev);
-    
+    // Call onToggleFavorite when the icon is clicked
+    if (props.onToggle) {
+      props.onToggle();
+    }
   };
 
   return (
