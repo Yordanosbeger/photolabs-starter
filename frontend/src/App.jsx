@@ -1,63 +1,35 @@
 // App.jsx
-//import React from 'react';
 import './App.scss';
-import HomeRoute from 'routes/HomeRoute';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
-import React, { useState } from 'react';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import React from 'react';
+import useApplicationData from './hooks/useApplicationData';
+import HomeRoute from './routes/HomeRoute';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
+import photos from './mocks/photos';
+import topics from './mocks/topics';
 
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [favoritePhotos, setFavoritePhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const { state, actions } = useApplicationData();
 
-   const openModal = (photo) => {
-    //console.log(photo);
-     setSelectedPhoto(photo);
-     setIsModalOpen(true);
-     console.log(true)
-   };
+  return (
+    <div className="App">
+      <HomeRoute
+        photos={photos}
+        topics={topics}
+        onToggleFavorite={actions.toggleFavorite}
+        favoritePhotos={state.favoritePhotos}
+        openModal={actions.openModal}
+      />
 
-   const closeModal = () => {
-     setSelectedPhoto(null);
-     setIsModalOpen(false);
-   };
-  const toggleFavorite = (photoId) => {
-    setFavoritePhotos((prevFavorites) => {
-      const updatedFavorites = prevFavorites.includes(photoId)
-      ? prevFavorites.filter((id) => id !== photoId)
-      : [...prevFavorites, photoId];
-      // console.log('Updated Favorites:', updatedFavorites);
-       return updatedFavorites;
-    });
-  };
-  
-  return(
-  <div className="App">
-     {/* <HomeRoute photos={photos} topics={topics}/> */}
-    {/* <TopNavigationBar topics={topics} hasFavoritePhotos={favoritePhotos.length > 0} />*/}
-       <HomeRoute 
-       photos={photos} 
-       topics={topics} 
-       onToggleFavorite={toggleFavorite} 
-       favoritePhotos={favoritePhotos} 
-       openModal={openModal}
-       />
-       
-     
-      
-
-         {isModalOpen && <PhotoDetailsModal  
-         closeModal={closeModal} 
-          selectedPhoto={selectedPhoto}
-         favoritePhotos={favoritePhotos}
-          onToggleFavorite={toggleFavorite}   />}
-        
-
+      {state.isModalOpen && (
+        <PhotoDetailsModal
+          closeModal={actions.closeModal}
+          selectedPhoto={state.selectedPhoto}
+          favoritePhotos={state.favoritePhotos}
+          onToggleFavorite={actions.toggleFavorite}
+        />
+      )}
     </div>
-
-   )
-}
+  );
+};
 
 export default App;
