@@ -9,13 +9,13 @@ import topics from './mocks/topics';
 
 const App = () => {
   const { state, actions } = useApplicationData();
-
+console.log(state);
   return (
     <div className="App">
       <HomeRoute
         photos={photos}
         topics={topics}
-        onToggleFavorite={actions.toggleFavorite}
+        onToggleFavorite={actions.updateFavPhotoIds}  
         favoritePhotos={state.favoritePhotos}
         openModal={actions.openModal}
       />
@@ -25,7 +25,8 @@ const App = () => {
           closeModal={actions.closeModal}
           selectedPhoto={state.selectedPhoto}
           favoritePhotos={state.favoritePhotos}
-          onToggleFavorite={actions.toggleFavorite}
+          onToggleFavorite={actions.updateFavPhotoIds}
+          openModal={actions.openModal} 
         />
       )}
     </div>
