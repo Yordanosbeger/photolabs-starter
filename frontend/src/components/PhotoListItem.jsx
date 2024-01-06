@@ -5,8 +5,8 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const { id, location, imageSource, username, profile,  isFavorite, onToggleFavorite, onClick} = props;
-  const handlePhotoClick = () => {
-    onClick();
+  const handlePhotoClick = (photo) => {
+    onClick(photo);
   };
 
 

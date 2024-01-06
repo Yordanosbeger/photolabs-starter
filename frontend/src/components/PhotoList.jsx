@@ -11,13 +11,13 @@ const PhotoList = ({photos, onToggleFavorite, favoritePhotos,openModal}) => {
   const handleToggleFavorite = (photoId) => {
     onToggleFavorite(photoId);
   };
-  const handlePhotoClick = () => {
-    openModal();
+  const handlePhotoClick = (photo) => {
+    openModal(photo);
   };
   return(    
      <ul className="photo-list">
        {photos.map(photo => (
-        <PhotoListItem onClick={handlePhotoClick}
+        <PhotoListItem onClick={() => handlePhotoClick(photo)}
           key={photo.id}
           //  id={photo.id}
         location={photo.location}

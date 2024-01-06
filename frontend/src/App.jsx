@@ -10,15 +10,17 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [favoritePhotos, setFavoritePhotos] = useState([]);
- // const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-   const openModal = () => {
-  //   setSelectedPhoto(photo);
+   const openModal = (photo) => {
+    //console.log(photo);
+     setSelectedPhoto(photo);
      setIsModalOpen(true);
+     console.log(true)
    };
 
    const closeModal = () => {
-  //   setSelectedPhoto(null);
+     setSelectedPhoto(null);
      setIsModalOpen(false);
    };
   const toggleFavorite = (photoId) => {
@@ -46,7 +48,12 @@ const App = () => {
      
       
 
-         {isModalOpen && <PhotoDetailsModal  closeModal={closeModal} />}
+         {isModalOpen && <PhotoDetailsModal  
+         closeModal={closeModal} 
+          selectedPhoto={selectedPhoto}
+         favoritePhotos={favoritePhotos}
+          onToggleFavorite={toggleFavorite}   />}
+        
 
     </div>
 
