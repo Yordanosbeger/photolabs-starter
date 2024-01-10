@@ -1,9 +1,6 @@
-// frontend/src/components/PhotoList.jsx
 import React from 'react';
 import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
-
-
 
 const PhotoList = ({photos, onToggleFavorite, favoritePhotos,openModal}) => {
   console.log('Favorite Photos in PhotoList:', favoritePhotos);
@@ -19,7 +16,7 @@ const PhotoList = ({photos, onToggleFavorite, favoritePhotos,openModal}) => {
        {photos.map(photo => (
         <PhotoListItem onClick={() => handlePhotoClick(photo)}
           key={photo.id}
-          //  id={photo.id}
+            //id={photo.id}
         location={photo.location}
           imageSource={photo.urls.regular}
            username={photo.user.name}

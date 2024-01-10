@@ -8,14 +8,11 @@ const PhotoListItem = (props) => {
   const handlePhotoClick = (photo) => {
     onClick(photo);
   };
-
-
+  
   return (
     <div className="photo-list__item" onClick={handlePhotoClick}>
        <PhotoFavButton isLiked={isFavorite}   onToggle={onToggleFavorite}/>
-
-      {/* Displaying photo details using props */}
-      <p> {id}</p>
+       <p>{id}</p>
       
       <img src={imageSource} alt={`Photo by ${username}`} className="photo-list__image" />
       <div className="photo-list__user-details">

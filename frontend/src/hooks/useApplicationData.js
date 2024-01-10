@@ -61,7 +61,7 @@ const initialState = {
   selectedPhoto: null,
   photoData:[],
   topicData:[]
-  // Add other initial state properties
+  
 };
 
 const useApplicationData = () => {
@@ -89,7 +89,7 @@ const useApplicationData = () => {
     fetch("/api/photos")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data); // Log the fetched data to the console
+        //console.log(data); 
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
       })
   },[])
@@ -99,7 +99,7 @@ const useApplicationData = () => {
     fetch("/api/topics")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data); // Log the fetched data to the console
+        //console.log(data); 
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
       })
   },[])
@@ -114,9 +114,7 @@ const useApplicationData = () => {
       .catch((error) => console.error('Error:', error));
   };
   
-  // Add other actions
-
-  return {
+ return {
     state,
     actions: {
       updateFavPhotoIds,
@@ -124,8 +122,7 @@ const useApplicationData = () => {
       openModal,
       closeModal,
       fetchPhotosByTopic
-      
-    },
+      },
   };
 };
 

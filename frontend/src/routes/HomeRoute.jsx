@@ -3,13 +3,8 @@ import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-
- const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosByTopic,openModal}) => { 
-  
- 
-     
-  
-   return (
+const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosByTopic,openModal}) => { 
+     return (
       <div className="home-route">
         <TopNavigationBar topics={topics} hasFavoritePhotos={favoritePhotos.length>0} fetchPhotosByTopic={fetchPhotosByTopic}/>
        <PhotoList 

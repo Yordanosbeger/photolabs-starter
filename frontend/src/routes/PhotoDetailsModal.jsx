@@ -4,12 +4,10 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from 'components/PhotoList';
 
-
-
 const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite,openModal }) => {
   console.log(selectedPhoto);
   if (!selectedPhoto) {
-    return null; // Render nothing if no photo is selected
+    return null; 
   }
 
   const {
@@ -35,7 +33,7 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
       <div className="photo-details-modal__images">
         <img className='photo-details-modal__image' src={full} alt={`Photo by ${username}`} />
         <div className="photo-details-modal__header">
-          {/* Add header content here */}
+          
         </div>
 
         <div className="photo-details-modal__photographer-details">

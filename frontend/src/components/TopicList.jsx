@@ -1,5 +1,4 @@
 import React from "react";
-//title={topic.title}
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 

@@ -9,7 +9,7 @@ function PhotoFavButton(props) {
   
   const handleIconClick = () => {
     setIsActive((prev) => !prev);
-    // Call onToggleFavorite when the icon is clicked
+    
     if (props.onToggle) {
       props.onToggle();
     }
