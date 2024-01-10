@@ -10,7 +10,7 @@ const TopicList = ({topics,fetchPhotosByTopic}) => {
   return (
     <div className="top-nav-bar__topic-list">
     {topics.map((topic) => (
-      <TopicListItem key={topic.id}  title={topic.title} slug={topic.slug} onClick={(e) => { 
+      <TopicListItem key={topic.id}  title={topic.title}  onClick={(e) => { 
         e.preventDefault() 
         fetchPhotosByTopic(topic.id)}
       } />
