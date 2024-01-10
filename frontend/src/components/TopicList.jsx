@@ -1,16 +1,20 @@
 import React from "react";
-
+//title={topic.title}
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-const TopicList = ({topics}) => {
+const TopicList = ({topics,fetchPhotosByTopic}) => {
    if (!topics) {
      return null;
   }
+   
   return (
     <div className="top-nav-bar__topic-list">
     {topics.map((topic) => (
-      <TopicListItem key={topic.id}  title={topic.title}/>
+      <TopicListItem key={topic.id}  title={topic.title} slug={topic.slug} onClick={(e) => { 
+        e.preventDefault() 
+        fetchPhotosByTopic(topic.id)}
+      } />
     ))}
   </div>
   );

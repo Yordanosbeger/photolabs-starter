@@ -6,7 +6,7 @@ import PhotoList from 'components/PhotoList';
 
 
 
-const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite, openModal }) => {
+const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite,openModal }) => {
   console.log(selectedPhoto);
   if (!selectedPhoto) {
     return null; // Render nothing if no photo is selected

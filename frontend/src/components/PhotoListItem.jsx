@@ -12,7 +12,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item" onClick={handlePhotoClick}>
-       <PhotoFavButton isLiked={isFavorite}  displayAlert={true} onToggle={onToggleFavorite}/>
+       <PhotoFavButton isLiked={isFavorite}   onToggle={onToggleFavorite}/>
 
       {/* Displaying photo details using props */}
       <p> {id}</p>

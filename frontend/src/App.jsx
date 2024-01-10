@@ -4,20 +4,25 @@ import React from 'react';
 import useApplicationData from './hooks/useApplicationData';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
-import photos from './mocks/photos';
-import topics from './mocks/topics';
+// import photos from './mocks/photos';
+// import topics from './mocks/topics';
 
 const App = () => {
   const { state, actions } = useApplicationData();
-console.log(state);
+  console.log(state);
+
   return (
     <div className="App">
       <HomeRoute
-        photos={photos}
-        topics={topics}
-        onToggleFavorite={actions.updateFavPhotoIds}  
+       
+        onToggleFavorite={actions.updateFavPhotoIds}
         favoritePhotos={state.favoritePhotos}
         openModal={actions.openModal}
+        fetchPhotosByTopic={actions.fetchPhotosByTopic}
+        setPhotoData={actions.setPhotoData}
+         photos={state.photoData}
+        topics={state.topicData}
+       
       />
 
       {state.isModalOpen && (
@@ -26,7 +31,8 @@ console.log(state);
           selectedPhoto={state.selectedPhoto}
           favoritePhotos={state.favoritePhotos}
           onToggleFavorite={actions.updateFavPhotoIds}
-          openModal={actions.openModal} 
+          openModal={actions.openModal}
+          
         />
       )}
     </div>
@@ -34,3 +40,4 @@ console.log(state);
 };
 
 export default App;
+
