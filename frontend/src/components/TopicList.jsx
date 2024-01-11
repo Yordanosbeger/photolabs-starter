@@ -6,8 +6,7 @@ const TopicList = ({topics,fetchPhotosByTopic}) => {
    if (!topics) {
      return null;
   }
-   
-  return (
+   return (
     <div className="top-nav-bar__topic-list">
     {topics.map((topic) => (
       <TopicListItem key={topic.id}  title={topic.title}  onClick={(e) => { 

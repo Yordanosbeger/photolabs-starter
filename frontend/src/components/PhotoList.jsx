@@ -3,9 +3,7 @@ import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
 const PhotoList = ({photos, onToggleFavorite, favoritePhotos,openModal}) => {
-  console.log('Favorite Photos in PhotoList:', favoritePhotos);
-
-  const handleToggleFavorite = (photoId) => {
+   const handleToggleFavorite = (photoId) => {
     onToggleFavorite(photoId);
   };
   const handlePhotoClick = (photo) => {
@@ -23,9 +21,7 @@ const PhotoList = ({photos, onToggleFavorite, favoritePhotos,openModal}) => {
           profile={photo.user.profile}
           isFavorite={favoritePhotos.includes(photo.id)}
           onToggleFavorite={() => handleToggleFavorite(photo.id)}
-         
          />
-    
        ))}
        </ul>
     

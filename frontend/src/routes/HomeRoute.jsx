@@ -11,15 +11,9 @@ const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosB
        photos={photos} 
        onToggleFavorite={onToggleFavorite} 
        favoritePhotos={favoritePhotos}
-       
-       
        openModal={openModal}
        fetchPhotosByTopic={fetchPhotosByTopic}/> 
-       
-      </div>
-      
-   )
-
+       </div>
+      )
  };
-
- export default HomeRoute;
+export default HomeRoute;
