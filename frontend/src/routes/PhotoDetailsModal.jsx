@@ -4,12 +4,10 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite,openModal, }) => {
-  
+const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite, openModal, }) => {
   if (!selectedPhoto) {
-    return null; 
+    return null;
   }
-   
 
   const {
     urls: { full },
@@ -23,20 +21,17 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
       <button className="photo-details-modal__close-button" onClick={closeModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      
+
       <div className="photo-details-modal__fav-icon">
         <PhotoFavButton
           isLiked={favoritePhotos.includes(selectedPhoto.id)}
           onToggle={() => onToggleFavorite(selectedPhoto.id)}
-          />
-       </div>
-
-
+        />
+      </div>
 
       <div className="photo-details-modal__images">
         <img className='photo-details-modal__image' src={full} alt={`Photo by ${username}`} />
         <div className="photo-details-modal__header">
-          
         </div>
 
         <div className="photo-details-modal__photographer-details">
@@ -45,6 +40,7 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
             src={profile}
             alt={username}
           />
+
           <div className="photo-details-modal__photographer-info">
             <div>{username}</div>
             <div className="photo-details-modal__photographer-location">
@@ -61,7 +57,7 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
             onToggleFavorite={onToggleFavorite}
             favoritePhotos={favoritePhotos}
             openModal={openModal}
-            
+
           />
         </div>
       </div>
