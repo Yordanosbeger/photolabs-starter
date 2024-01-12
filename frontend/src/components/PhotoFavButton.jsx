@@ -1,23 +1,19 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-
+//displayAlert={props.displayAlert}
 function PhotoFavButton(props) {
-  const [isActive, setIsActive] = useState(props.isLiked || false);
-  const handleIconClick = () => {
-    setIsActive((prev) => !prev);
-    if (props.onToggle) {
-      props.onToggle();
-    }
-  };
-return (
-    <div className={`photo-list__fav-icon ${isActive ? 'active' : ''}`} onClick={handleIconClick}>
-      <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isActive} displayAlert={props.displayAlert} />
-      </div>
+  return (
+  <div className="photo-list__fav-icon" onClick={props.onToggle}>
+    <div className="photo-list__fav-icon-svg">
+
+      <FavIcon
+        selected={props.isLiked} 
+      />
     </div>
-  );
+  </div>
+);
 }
 
 export default PhotoFavButton;

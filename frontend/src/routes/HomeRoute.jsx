@@ -3,7 +3,8 @@ import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosByTopic,openModal}) => { 
+
+const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosByTopic,openModal }) => { 
      return (
       <div className="home-route">
         <TopNavigationBar topics={topics} hasFavoritePhotos={favoritePhotos.length>0} fetchPhotosByTopic={fetchPhotosByTopic}/>
@@ -12,8 +13,15 @@ const HomeRoute = ({ photos, topics,onToggleFavorite,favoritePhotos,fetchPhotosB
        onToggleFavorite={onToggleFavorite} 
        favoritePhotos={favoritePhotos}
        openModal={openModal}
-       fetchPhotosByTopic={fetchPhotosByTopic}/> 
-       </div>
-      )
+       fetchPhotosByTopic={fetchPhotosByTopic}
+       
+       />
+
+       
+      </div>
+      
+   )
+
  };
-export default HomeRoute;
+
+ export default HomeRoute;

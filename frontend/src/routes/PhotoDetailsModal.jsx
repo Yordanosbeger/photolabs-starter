@@ -4,11 +4,12 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import '../styles/PhotoDetailsModal.scss';
 import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite,openModal }) => {
-  console.log(selectedPhoto);
+const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggleFavorite,openModal, }) => {
+  
   if (!selectedPhoto) {
     return null; 
   }
+   
 
   const {
     urls: { full },
@@ -27,8 +28,10 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
         <PhotoFavButton
           isLiked={favoritePhotos.includes(selectedPhoto.id)}
           onToggleFavorite={() => onToggleFavorite(selectedPhoto.id)}
-        />
-      </div>
+          />
+       </div>
+
+
 
       <div className="photo-details-modal__images">
         <img className='photo-details-modal__image' src={full} alt={`Photo by ${username}`} />
@@ -54,10 +57,11 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, onToggle
           <h2 className="photo-details-modal__header">Similar Photos</h2>
           <PhotoList
             photos={Object.values(similar_photos)}
-            setSelectedPhoto={() => {}}
+            setSelectedPhoto={selectedPhoto}
             onToggleFavorite={onToggleFavorite}
             favoritePhotos={favoritePhotos}
             openModal={openModal}
+            
           />
         </div>
       </div>

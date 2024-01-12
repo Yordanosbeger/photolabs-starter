@@ -4,19 +4,23 @@ import useApplicationData from './hooks/useApplicationData';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 
+
 const App = () => {
   const { state, actions } = useApplicationData();
   console.log(state);
  return (
     <div className="App">
       <HomeRoute
-       onToggleFavorite={actions.updateFavPhotoIds}
+        onToggleFavorite={actions.updateFavPhotoIds}
+        
         favoritePhotos={state.favoritePhotos}
         openModal={actions.openModal}
         fetchPhotosByTopic={actions.fetchPhotosByTopic}
         setPhotoData={actions.setPhotoData}
         photos={state.photoData}
         topics={state.topicData}
+        
+        
        />
       {state.isModalOpen && (
         <PhotoDetailsModal
@@ -25,8 +29,13 @@ const App = () => {
           favoritePhotos={state.favoritePhotos}
           onToggleFavorite={actions.updateFavPhotoIds}
           openModal={actions.openModal}
+          
+          
+          
           />
+          
       )}
+      
     </div>
   );
 };

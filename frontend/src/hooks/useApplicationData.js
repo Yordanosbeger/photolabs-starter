@@ -7,7 +7,8 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA:'SET_TOPIC_DATA',
-  GET_PHOTO_BY_TOPIC:'GET_PHOTO_BY_TOPIC'
+  GET_PHOTO_BY_TOPIC:'GET_PHOTO_BY_TOPIC',
+  
 }
 
 function reducer(state, action) {
@@ -25,7 +26,7 @@ function reducer(state, action) {
     case ACTIONS.OPEN_MODAL:
       return {
         ...state,
-        isModalOpen: true,
+        isModalOpen: true ,
         selectedPhoto: action.payload.selectedPhoto,
       };
     case ACTIONS.CLOSE_MODAL:
@@ -50,6 +51,8 @@ function reducer(state, action) {
               ...state,
               photoData:action.payload
             }
+
+           
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -67,15 +70,25 @@ const initialState = {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+ 
+  // const updateFavPhotoIds = (id) => {
+  //   dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
+  // };
 
+  // const removeFavPhotoIds = (id) => {
+  //   dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id } });
+  // };
   const updateFavPhotoIds = (id) => {
-    dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
+    
+    dispatch({
+      type: state.favoritePhotos.includes(id)
+        ? ACTIONS.FAV_PHOTO_REMOVED
+        : ACTIONS.FAV_PHOTO_ADDED,
+      payload:{id}
+    });
   };
-
-  const removeFavPhotoIds = (id) => {
-    dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id } });
-  };
-
+ 
+  
   const openModal = (photo) => {
     dispatch({ type: ACTIONS.OPEN_MODAL, payload: { selectedPhoto: photo } });
   };
@@ -89,7 +102,7 @@ const useApplicationData = () => {
     fetch("/api/photos")
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data); 
+         
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
       })
   },[])
@@ -99,7 +112,7 @@ const useApplicationData = () => {
     fetch("/api/topics")
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data); 
+         
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
       })
   },[])
@@ -118,10 +131,13 @@ const useApplicationData = () => {
     state,
     actions: {
       updateFavPhotoIds,
-      removeFavPhotoIds,
+      //removeFavPhotoIds,
       openModal,
       closeModal,
-      fetchPhotosByTopic
+      fetchPhotosByTopic,
+      
+      
+      
       },
   };
 };
